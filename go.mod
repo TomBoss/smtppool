@@ -1,3 +1,3 @@
-module github.com/knadh/smtppool
+module github.com/TomBoss/smtppool
 
 go 1.14
