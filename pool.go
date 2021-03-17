@@ -6,6 +6,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
+	"log"
 	"net"
 	"net/mail"
 	"net/smtp"
@@ -124,9 +125,11 @@ func (p *Pool) Send(e Email) error {
 		// Send the message.
 		canRetry, err := c.send(e)
 		if err == nil {
+			log.Printf("Send %+v: OK\n", e.To)
 			_ = p.returnConn(c, nil)
 			return nil
 		}
+		log.Printf("Send %+v: KO\n", e.To)
 		lastErr = err
 
 		// Not a retriable error.
