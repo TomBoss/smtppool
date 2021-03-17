@@ -5,7 +5,6 @@ package smtppool
 import (
 	"crypto/tls"
 	"errors"
-	"fmt"
 	"log"
 	"net"
 	"net/mail"
